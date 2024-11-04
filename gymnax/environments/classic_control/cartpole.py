@@ -148,7 +148,7 @@ class CartPole(environment.Environment[EnvState, EnvParams]):
 
     def action_space(self, params: Optional[EnvParams] = None) -> spaces.Discrete:
         """Action space of the environment."""
-        return spaces.Discrete(2)
+        return spaces.Discrete(2, dtype = jnp.int32)
 
     def observation_space(self, params: EnvParams) -> spaces.Box:
         """Observation space of the environment."""
@@ -178,6 +178,6 @@ class CartPole(environment.Environment[EnvState, EnvParams]):
                 "x_dot": spaces.Box(-high[1], high[1], (), jnp.float32),
                 "theta": spaces.Box(-high[2], high[2], (), jnp.float32),
                 "theta_dot": spaces.Box(-high[3], high[3], (), jnp.float32),
-                "time": spaces.Discrete(params.max_steps_in_episode),
+                "time": spaces.Discrete(params.max_steps_in_episode, jnp.int32),
             }
         )
