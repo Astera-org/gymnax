@@ -32,7 +32,7 @@ else:
 git_tar = f"https://github.com/RobertTLange/gymnax/archive/v{verstr}.tar.gz"
 
 requires = [
-    "jax",
+    "jax>=0.4.25",
     "jaxlib",
     "chex",
     "flax",
